@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model checkpoints and large weights
+*.pth
+*.pt
+*.bin
+*.ckpt
+
+models/checkpoints/pretrained_gpt2/*
+!models/checkpoints/pretrained_gpt2/.gitkeep

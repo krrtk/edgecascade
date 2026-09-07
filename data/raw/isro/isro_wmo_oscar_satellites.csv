@@ -1,0 +1,220 @@
+Acronym,SAT ID,Launch,(expected) EOL,Satellite Programme,Agencies,Orbit,Altitude,Longitude,Inclination,Ect,Sat status,Payload,WIGOS Station Identifier,Link,Last update
+Aditya-1,469,02 Sep 2023,≥2028,"Aditya
+","ISRO
+",L1,1500000 km,,,,Operational,"ASPEX
+HEL1OS
+Magnetometer (Aditya)
+PAPA
+SUIT
+SoLEXS
+VELC",-20009--,,2025-04-07 08:56:38
+CartoSat-1 (IRS-P5),20,05 May 2005,05 May 2019,Satellite for Cartography,"ISRO
+",SunSync,618 km,,,10:15 desc,Inactive,PAN (CartoSat-1),,,2020-01-03 20:24:08
+CartoSat-2,21,10 Jan 2007,13 Aug 2019,Satellite for Cartography,"ISRO
+",SunSync,635 km,,,09:30 desc,Inactive,PAN (CartoSat-2A/B),,,2020-01-03 20:29:02
+CartoSat-2A,22,28 Apr 2008,≥2026,Satellite for Cartography,"ISRO
+",SunSync,635 km,,,09:32 desc,Operational,PAN (CartoSat-2A/B),,,2026-01-19 13:23:10
+CartoSat-2B,23,12 Jul 2010,≥2026,Satellite for Cartography,"ISRO
+",SunSync,640 km,,,09:30 desc,Operational,PAN (CartoSat-2A/B),,,2026-01-19 13:23:10
+CartoSat-2C,593,22 Jun 2016,≥2026,Satellite for Cartography,"ISRO
+",SunSync,505 km,,,09:28 desc,Operational,"EvM
+HRMX
+PAN (CartoSat 2C/D",0-20009-0-,,2026-02-02 16:13:44
+CartoSat-2D,594,15 Feb 2017,≥2026,Satellite for Cartography,"ISRO
+",SunSync,515 km,,,09:30 desc,Operational,"EvM
+HRMX
+PAN (CartoSat 2C/D",0-20009-0-,,2026-02-02 16:12:12
+CartoSat-2E,660,23 Jun 2017,≥2026,Satellite for Cartography,"ISRO
+",SunSync,505 km,,,09:29 desc,Operational,"EvM
+HRMX
+PAN (CartoSat 2C/D",0-20009-0-,,2026-02-02 15:34:30
+CartoSat-2F,738,12 Jan 2018,≥2026,Satellite for Cartography,"ISRO
+",SunSync,505 km,,,09:37 desc,Operational,"EvM
+HRMX
+PAN (CartoSat 2C/D",0-20009-0-,,2026-02-02 17:07:27
+CartoSat-3,24,27 Nov 2019,≥2026,Satellite for Cartography,"ISRO
+",SunSync,450 km,,,09:30 desc,Operational,"MX
+PAN (CartoSat-3)",,,2026-01-19 13:23:10
+EOS 03,526,11 Aug 2021,11 Aug 2021,Geostationary High Resolution Imager,"ISRO
+",GEO,35786 km,85.5 ° E,,,Lost at launch,"HyS-SWIR
+HyS-VNIR
+MX-LWIR
+MX-VNIR",,,2021-08-13 18:58:57
+EOS-01,805,07 Nov 2020,≥2026,Radar Imaging Satellite,"ISRO
+",DRIFT,555 km,,37°,,Operational,SAR-X (RISAT-2),0-20009-0-,,2026-02-02 15:47:29
+EOS-04,604,14 Feb 2022,≥2027,Radar Imaging Satellite,"ISRO
+",SunSync,529 km,,,06:00 desc,Operational,SAR-C (RISAT),,,2023-07-24 08:50:54
+EOS-07,996,10 Feb 2023,≥2026,Indian Microsat,"ISRO
+",DRIFT,450 km,,37.2°,,Operational,MHS (EOS-07),-20009--,,2026-02-02 16:10:50
+EOS-08,1070,16 Aug 2024,≥2027,Indian Microsat,"ISRO
+",DRIFT,475 km,,37.4°,,Operational,"EOIR
+GNSS-R (MicroSat-2C)
+SiC UV Dosimeter",-20009--,,2026-04-20 07:56:39
+G20,1152,≥2028,≥2032,G20 Environmental Satellite,"ISRO
+",SunSync,720 km,,,11:35 desc,Planned,"EnSAC
+HyMATHS
+POLSAC
+SACFF",0-20009-0-0,,2026-04-20 07:53:35
+HRSAT-1A,749,≥2027,≥2029,High Resolution Satellite - 1,"ISRO
+",SunSync,660 km,,,09:30 desc,Planned,HRSAT-1,0-20009-0-,,2024-11-25 14:41:36
+HRSAT-1B,792,≥2027,≥2029,High Resolution Satellite - 1,"ISRO
+",SunSync,660 km,,,09:30 desc,Planned,HRSAT-1,0-20009-0-,,2024-11-25 14:41:51
+HySIS,769,29 Nov 2018,≥2026,Hyper Spectral Imaging Spectrometer,"ISRO
+",SunSync,630 km,,,10:34 desc,Operational,HySIS,0-20009-0-,,2026-02-02 17:28:54
+IMS-1,179,28 Apr 2008,20 Sep 2012,Indian Mini-Satellite,"ISRO
+",SunSync,632 km,,,09:30 desc,Inactive,"HySI-T
+Mx-T",,,2018-03-20 12:29:30
+INSAT-1A,181,10 Apr 1982,06 Sep 1982,Indian National Satellite - 1,"ISRO
+",GEO,35786 km,74 ° E,,,Inactive,"DCS (INSAT)
+VHRR (INSAT)",,,2015-07-28 12:23:57
+INSAT-1B,182,30 Aug 1983,15 Jul 1993,Indian National Satellite - 1,"ISRO
+",GEO,35786 km,74 ° E,,,Inactive,"DCS (INSAT)
+VHRR (INSAT)",0-20009-0-430,,2015-07-28 12:24:40
+INSAT-1C,183,22 Jul 1988,22 Nov 1989,Indian National Satellite - 1,"ISRO
+",GEO,35786 km,93.5 ° E,,,Inactive,"DCS (INSAT)
+VHRR (INSAT)",0-20009-0-431,,2015-07-28 12:25:13
+INSAT-1D,184,12 Jun 1990,14 May 2002,Indian National Satellite - 1,"ISRO
+",GEO,35786 km,74 ° E,,,Inactive,"DCS (INSAT)
+VHRR (INSAT)",0-20009-0-432,,2015-07-28 12:25:50
+INSAT-2A,185,10 Jul 1992,30 May 2002,Indian National Satellite - 2,"ISRO
+",GEO,35786 km,74 ° E,,,Inactive,"DCS (INSAT)
+SAS&R
+VHRR (INSAT)",0-20009-0-450,,2015-07-28 12:26:29
+INSAT-2B,186,23 Jul 1993,01 Jul 2004,Indian National Satellite - 2,"ISRO
+",GEO,35786 km,93.5 ° E,,,Inactive,"DCS (INSAT)
+SAS&R
+VHRR (INSAT)",0-20009-0-451,,2015-07-28 12:27:14
+INSAT-2C,187,07 Dec 1995,15 Apr 2002,Indian National Satellite - 2,"ISRO
+",GEO,35786 km,93.5 ° E,,,Inactive,,,,2015-07-28 12:27:58
+INSAT-2D,188,04 Jun 1997,04 Oct 1997,Indian National Satellite - 2,"ISRO
+",GEO,35786 km,93.5 ° E,,,Inactive,"DCS (INSAT)
+SAS&R
+VHRR (INSAT)",,,2015-07-28 12:28:35
+INSAT-2E,189,03 Apr 1999,15 Apr 2012,Indian National Satellite - 2,"ISRO
+",GEO,35786 km,83 ° E,,,Inactive,"CCD
+DCS (INSAT)
+SAS&R
+VHRR (INSAT)",0-20009-0-452,,2015-07-28 12:29:33
+INSAT-3A,190,10 Apr 2003,Sep 2016,Indian National Satellite - 3,"IMD
+ISRO",GEO,35786 km,93.5 ° E,,,Inactive,"CCD
+DCS (INSAT)
+SAS&R
+VHRR (INSAT)",0-20009-0-470,,2017-07-17 17:09:14
+INSAT-3B,191,22 Mar 2000,02 Nov 2010,Indian National Satellite - 3,"IMD
+ISRO",GEO,35786 km,83 ° E,,,Inactive,,,,2017-01-20 10:45:19
+INSAT-3C,192,24 Jan 2002,≥2014,Indian National Satellite - 3,"IMD
+ISRO",GEO,35786 km,74 ° E,,,Inactive,,,,2017-07-17 17:18:07
+INSAT-3D,193,25 Jul 2013,01 Oct 2024,Indian National Satellite - 3,"IMD
+ISRO",GEO,35786 km,129.5 ° E,,,Back-up,"DCS (INSAT)
+IMAGER (INSAT)
+SAS&R
+SOUNDER (INSAT)",0-20009-0-471,,2025-12-15 10:56:26
+INSAT-3DR,194,08 Sep 2016,≥2026,Indian National Satellite - 3,"IMD
+ISRO",GEO,35786 km,74 ° E,,,Operational,"DCS (INSAT)
+IMAGER (INSAT)
+SAS&R
+SOUNDER (INSAT)",0-20009-0-473,,2022-03-21 14:49:09
+INSAT-3DS,603,17 Feb 2024,≥2034,Indian National Satellite - 3,"IMD
+ISRO",GEO,35786 km,82 ° E,,,Operational,"DCS (INSAT)
+IMAGER (INSAT)
+SAS&R
+SOUNDER (INSAT)",0-20009-0-474,,2025-01-22 15:54:07
+INSAT-4,1167,≥2030,≥2040,Indian National Satellite - 4,"ISRO
+IMD",GEO,35786 km,74 ° E,,,Planned,"IMAGER (INSAT-4)
+IR Sounder (INSAT-4)
+LI (INSAT-4)",0-20009-0-,,2026-04-20 08:54:23
+IRS-1A,196,17 Mar 1988,01 Jul 1992,Indian Remote-sensing Satellite,"ISRO
+",SunSync,904 km,,,10:30 desc,Inactive,"LISS-1
+LISS-2",,,2015-07-28 12:33:59
+IRS-1B,197,29 Aug 1991,01 Jul 2001,Indian Remote-sensing Satellite,"ISRO
+",SunSync,904 km,,,10:30 desc,Inactive,"LISS-1
+LISS-2",,,2015-07-28 12:34:49
+IRS-1C,198,28 Dec 1995,21 Sep 2005,Indian Remote-sensing Satellite,"ISRO
+",SunSync,817 km,,,10:30 desc,Inactive,"LISS-3 (IRS-1)
+PAN (IRS)
+WiFS",,,2015-07-28 12:35:39
+IRS-1D,199,29 Sep 1997,15 Jan 2010,Indian Remote-sensing Satellite,"ISRO
+",SunSync,778 km,,,10:30 desc,Inactive,"LISS-3 (IRS-1)
+PAN (IRS)
+WiFS",,,2015-07-28 12:36:27
+IRS-1E (IRS-P1),200,20 Sep 1993,20 Sep 1993,Indian Remote-sensing Satellite,"ISRO
+",SunSync,904 km,,,10:30 desc,Lost at launch,"LISS-1
+MEOSS",,,2015-07-28 12:37:52
+IRS-P2,201,15 Oct 1994,15 Sep 1997,Indian Remote-sensing Satellite,"ISRO
+",SunSync,817 km,,,10:30 desc,Inactive,LISS-2M,,,2015-07-28 12:38:32
+IRS-P3,202,21 Mar 1996,15 Oct 2004,Indian Remote-sensing Satellite,"ISRO
+",SunSync,817 km,,,10:30 desc,Inactive,"IXAE
+MOS
+WiFS (IRS-P3)",,,2015-07-28 12:39:15
+Kalpana-1,210,12 Sep 2002,Sep 2017,Kalpana,"ISRO
+IMD",GEO,35786 km,74 ° E,,,Inactive,"DCS (INSAT)
+VHRR (INSAT)",0-20009-0-410,,2018-10-06 12:54:37
+Megha-Tropiques,228,12 Oct 2011,Jan 2022,Megha-Tropiques,"ISRO
+CNES",DRIFT,867 km,,20°,,Inactive,"MADRAS
+ROSA
+SAPHIR
+ScaRaB",0-20009-0-440,,2022-06-27 14:44:44
+NEMO-AM,1111,≥2026,≥2030,Nanosatellite for Earth Monitoring and Observation-Aerosol Monitoring,"ISRO
+",SunSync,650 km,,,09:30 desc,Planned,Imager (NEMO),0-20009-0-0,,2026-02-09 10:36:51
+NISAR,639,30 Jul 2025,≥2029,NASA-ISRO Synthetic Aperture Radar,"NASA
+ISRO",SunSync,747 km,,,06:00 desc,Operational,"SAR-L (NISAR)
+SAR-S (NISAR) ",-20009--,,2026-02-23 08:51:53
+OceanSat-1 (IRS-P4),343,26 May 1999,08 Aug 2010,Satellite for the Ocean,"ISRO
+",SunSync,723 km,,,12:00 desc,Inactive,"MSMR
+OCM (OceanSat-1)",,,2019-10-29 15:53:58
+OceanSat-2,344,23 Sep 2009,Jul 2023,Satellite for the Ocean,"ISRO
+",SunSync,730 km,,,11:53 desc,Inactive,"OCM (OceanSat-2)
+OSCAT
+ROSA (OceanSat)",0-20009-0-421,,2023-12-21 10:09:28
+OceanSat-3 (EOS-06),345,26 Nov 2022,≥2027,Satellite for the Ocean,"ISRO
+",SunSync,723 km,,,12:00 desc,Operational,"Argos-4
+OCM (OceanSat-3)
+OSCAT-3",0-20009-0-423,,2026-08-24 14:39:22
+OceanSat-3A,722,Sep 2026,≥2030,Satellite for the Ocean,"ISRO
+",SunSync,723 km,,,12:00 desc,Planned,"MATHS
+OCM (OceanSat-3)
+OSCAT-3
+SSTM",-20009--,,2026-04-20 07:51:19
+ResourceSat-1 (IRS-P6),373,17 Oct 2003,07 Dec 2013,Satellite for Earth Resources,"ISRO
+",SunSync,817 km,,,10:42 desc,Inactive,"AWiFS
+LISS-3 (ResourceSat)
+LISS-4",,,2022-10-24 10:45:46
+ResourceSat-2,374,20 Apr 2011,≥2026,Satellite for Earth Resources,"ISRO
+",SunSync,817 km,,,10:33 desc,Operational,"AWiFS
+LISS-3 (ResourceSat)
+LISS-4",-20009--,,2026-02-02 16:05:59
+ResourceSat-2A,602,07 Dec 2016,≥2026,Satellite for Earth Resources,"ISRO
+",SunSync,817 km,,,10:20 desc,Operational,"AWiFS
+LISS-3 (ResourceSat)
+LISS-4",0-20009-0-,,2026-02-02 16:05:34
+ResourceSat-3,720,≥2026,≥2030,Satellite for Earth Resources,"ISRO
+",SunSync,795 km,,,10:30 desc,Planned,"ALISS-3
+ATCOR",0-20009-0-,,2026-02-09 10:32:23
+ResourceSat-3A,721,≥2026,≥2030,Satellite for Earth Resources,"ISRO
+",SunSync,795 km,,,10:30 desc,Planned,"ALISS-3
+ATCOR",,,2023-07-24 08:39:35
+ResourceSat-3S,747,≥2026,≥2029,Satellite for Earth Resources,"ISRO
+",SunSync,633 km,,,10:30 desc,Planned,"APAN (ResourceSat-3S)
+LISS-V",0-20009-0-,,2026-02-09 10:33:19
+ResourceSat-3SA,748,≥2026,≥2031,Satellite for Earth Resources,"ISRO
+",SunSync,633 km,,,10:30 desc,Planned,"APAN (ResourceSat-3S)
+LISS-V",,,2023-07-24 08:41:09
+RISAT-1,380,26 Apr 2012,31 Mar 2017,Radar Imaging Satellite,"ISRO
+",SunSync,546 km,,,06:00 desc,Inactive,SAR-C (RISAT),,,2020-01-04 13:53:08
+RISAT-1B (EOS-09),1012,18 May 2025,≥2029,Radar Imaging Satellite,"ISRO
+",SunSync,529 km,,,06:00 desc,Lost at launch,SAR-C (RISAT),-20009--,,2025-05-20 09:07:56
+RISAT-2,381,20 Apr 2009,30 Oct 2022,Radar Imaging Satellite,"ISRO
+",DRIFT,440 km,,41°,,Inactive,SAR-X (RISAT-2),,,2024-01-23 15:32:48
+RISAT-2B,778,22 May 2019,≥2026,Radar Imaging Satellite,"ISRO
+",DRIFT,555 km,,37°,,Operational,SAR-X (RISAT-2),0-20009-0-,,2026-02-02 16:32:41
+RISAT-2BR1,783,11 Dec 2019,≥2026,Radar Imaging Satellite,"ISRO
+",DRIFT,555 km,,37°,,Operational,SAR-X (RISAT-2),0-20009-0-,,2026-02-02 16:33:06
+SARAL,390,25 Feb 2013,≥2026,Satellite with ARgos and ALtiKa,"CNES
+ISRO",SunSync,800 km,,,05:56 asc,Operational,"A-DCS
+AltiKa
+DORIS
+LRA (CNES)",0-20009-0-441,,2026-08-24 14:48:43
+ScatSat-1,605,26 Sep 2016,28 Feb 2021,Satellite for the Ocean,"ISRO
+",SunSync,732 km,,,08:45 desc,Inactive,OSCAT,0-20009-0-422,,2021-06-10 16:21:34
+TRISHNA,750,≥2028,≥2031,TRISHA,"ISRO
+CNES",SunSync,761 km,,,12:30 asc,Planned,TRISHNA,0-20009-0-,,2026-06-08 08:44:47
