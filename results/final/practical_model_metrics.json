@@ -1,0 +1,23 @@
+{
+    "System": "Practical Qwen Cascade",
+    "Total questions": 30,
+    "Tier 1 final count": 29,
+    "Tier 2 final count": 1,
+    "Tier 3 final count": 0,
+    "Tier 1 to Tier 2 transitions": 1,
+    "Tier 2 to Tier 3 transitions": 0,
+    "Final correctness (%)": 93.33333333333333,
+    "Quality distribution": {
+        "GOOD": 7,
+        "PARTIALLY_GOOD": 8,
+        "BAD": 15,
+        "UNKNOWN": 0
+    },
+    "Remote-call rate (%)": 0.0,
+    "RAG-call rate (%)": 3.3333333333333335,
+    "Average latency (s)": 7.961765607198079,
+    "ISRO performance (%)": 93.33333333333333,
+    "DPDPA performance (%)": 93.33333333333333,
+    "Knowledge-gap performance (%)": 90.0,
+    "Reasoning performance (%)": 100.0
+}

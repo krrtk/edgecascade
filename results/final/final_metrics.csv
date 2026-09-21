@@ -1,0 +1,10 @@
+Metric,Value,Definition
+FINAL_BENCHMARK_CORRECTNESS,93.33%,Percentage of answers matching benchmark ground truth via keyword overlap
+FINAL_SEMANTIC_QUALITY_GOOD,7,Count of answers manually or semantically judged as GOOD
+FINAL_SEMANTIC_QUALITY_PARTIALLY_GOOD,8,Count of answers judged as PARTIALLY_GOOD
+FINAL_SEMANTIC_QUALITY_BAD,15,Count of answers judged as BAD
+TIER_1_LOCAL_QUALITY,46.67%,Percentage of Tier-1 final answers judged at least PARTIALLY_GOOD
+TIER_2_RAG_QUALITY,100.00%,Percentage of Tier-2 final answers judged at least PARTIALLY_GOOD
+REMOTE_CALL_RATE,0.00%,Percentage of questions routed to Tier 3 (Remote LLM)
+RAG_CALL_RATE,3.33%,Percentage of questions routed to Tier 2 (RAG)
+TIER_1_FINAL_RATE,96.67%,Percentage of questions answered finally by Tier 1

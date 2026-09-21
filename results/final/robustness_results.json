@@ -1,0 +1,30 @@
+[
+  {
+    "domain": "ISRO",
+    "question": "What are the main applications of Cartosat-1?",
+    "tier_reached": "tier3",
+    "answer": "[REMOTE] N/A",
+    "escalation_reason": "T1 Judge Fail: Low confidence generation (avg log-prob: -1.38) | T2 Judge Fail: Answer not supported by context: Unsupported number '1.1'"
+  },
+  {
+    "domain": "ISRO",
+    "question": "Can you explain how Resourcesat-2 helps with agriculture?",
+    "tier_reached": "tier3",
+    "answer": "[REMOTE] N/A",
+    "escalation_reason": "T1 Judge Fail: Low confidence generation (avg log-prob: -1.32) | T2 Judge Fail: Answer not supported by context: Unsupported entity 'Resourceat'"
+  },
+  {
+    "domain": "DPDPA",
+    "question": "Who is considered a Data Fiduciary?",
+    "tier_reached": "tier1",
+    "answer": "Data Fiduciary is a term used to describe a person who is responsible for the management of data and information.\nIt is a term used to describe a person who is responsible for the",
+    "escalation_reason": "N/A"
+  },
+  {
+    "domain": "DPDPA",
+    "question": "What are the rights of a child under the DPDPA?",
+    "tier_reached": "tier1",
+    "answer": "The rights of a child under the DPDPA are:\n1.\n1.1.\n1.2.\n1.2.1\n1.2.2\n1",
+    "escalation_reason": "N/A"
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "BASIC_DEFINITION": {
+    "n_questions": 6,
+    "GOOD": 0,
+    "PARTIALLY_GOOD": 1,
+    "BAD": 5,
+    "UNKNOWN": 0,
+    "success_rate_broad": 0.1667,
+    "success_rate_strict": 0.0,
+    "avg_latency_s": 5.5124,
+    "avg_log_prob": -1.2187
+  },
+  "BASIC_TERMINOLOGY": {
+    "n_questions": 6,
+    "GOOD": 0,
+    "PARTIALLY_GOOD": 0,
+    "BAD": 6,
+    "UNKNOWN": 0,
+    "success_rate_broad": 0.0,
+    "success_rate_strict": 0.0,
+    "avg_latency_s": 5.5502,
+    "avg_log_prob": -1.0258
+  },
+  "MULTI_FACT": {
+    "n_questions": 5,
+    "GOOD": 0,
+    "PARTIALLY_GOOD": 0,
+    "BAD": 4,
+    "UNKNOWN": 1,
+    "success_rate_broad": 0.0,
+    "success_rate_strict": 0.0,
+    "avg_latency_s": 6.6815,
+    "avg_log_prob": -1.3609
+  },
+  "REASONING": {
+    "n_questions": 6,
+    "GOOD": 0,
+    "PARTIALLY_GOOD": 0,
+    "BAD": 5,
+    "UNKNOWN": 1,
+    "success_rate_broad": 0.0,
+    "success_rate_strict": 0.0,
+    "avg_latency_s": 7.0902,
+    "avg_log_prob": -1.3833
+  },
+  "SIMPLE_CONCEPT": {
+    "n_questions": 6,
+    "GOOD": 0,
+    "PARTIALLY_GOOD": 1,
+    "BAD": 5,
+    "UNKNOWN": 0,
+    "success_rate_broad": 0.1667,
+    "success_rate_strict": 0.0,
+    "avg_latency_s": 6.3943,
+    "avg_log_prob": -1.3498
+  },
+  "SIMPLE_RELATIONSHIP": {
+    "n_questions": 6,
+    "GOOD": 0,
+    "PARTIALLY_GOOD": 0,
+    "BAD": 5,
+    "UNKNOWN": 1,
+    "success_rate_broad": 0.0,
+    "success_rate_strict": 0.0,
+    "avg_latency_s": 6.267,
+    "avg_log_prob": -1.3966
+  },
+  "SPECIFIC_FACT": {
+    "n_questions": 6,
+    "GOOD": 0,
+    "PARTIALLY_GOOD": 0,
+    "BAD": 5,
+    "UNKNOWN": 1,
+    "success_rate_broad": 0.0,
+    "success_rate_strict": 0.0,
+    "avg_latency_s": 6.2865,
+    "avg_log_prob": -1.4782
+  }
+}

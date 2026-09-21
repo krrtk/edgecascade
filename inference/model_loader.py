@@ -46,8 +46,8 @@ def load_weights_into_gpt(gpt, params):
             axis=-1,
         )
 
-        gpt.trf_blocks[b].att.W_query.weight = assign(
-            gpt.trf_blocks[b].att.W_query.weight,
+        gpt.trf_blocks[b].att.W_query.linear.weight = assign(
+            gpt.trf_blocks[b].att.W_query.linear.weight,
             q_w.T,
         )
 
@@ -56,8 +56,8 @@ def load_weights_into_gpt(gpt, params):
             k_w.T,
         )
 
-        gpt.trf_blocks[b].att.W_value.weight = assign(
-            gpt.trf_blocks[b].att.W_value.weight,
+        gpt.trf_blocks[b].att.W_value.linear.weight = assign(
+            gpt.trf_blocks[b].att.W_value.linear.weight,
             v_w.T,
         )
 
@@ -67,8 +67,8 @@ def load_weights_into_gpt(gpt, params):
             axis=-1,
         )
 
-        gpt.trf_blocks[b].att.W_query.bias = assign(
-            gpt.trf_blocks[b].att.W_query.bias,
+        gpt.trf_blocks[b].att.W_query.linear.bias = assign(
+            gpt.trf_blocks[b].att.W_query.linear.bias,
             q_b,
         )
 
@@ -77,8 +77,8 @@ def load_weights_into_gpt(gpt, params):
             k_b,
         )
 
-        gpt.trf_blocks[b].att.W_value.bias = assign(
-            gpt.trf_blocks[b].att.W_value.bias,
+        gpt.trf_blocks[b].att.W_value.linear.bias = assign(
+            gpt.trf_blocks[b].att.W_value.linear.bias,
             v_b,
         )
 

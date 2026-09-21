@@ -2,11 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
+*.pyo
 
 # Virtual environments
 .venv/
 venv/
 env/
+myenv/
 myenv313/
 
 # Jupyter
@@ -28,6 +31,25 @@ Thumbs.db
 *.pt
 *.bin
 *.ckpt
+*.safetensors
+*.gguf
 
 models/checkpoints/pretrained_gpt2/*
 !models/checkpoints/pretrained_gpt2/.gitkeep
+
+# Runtime logs
+*.log
+results/logs/
+
+# Temporary files
+tmp/
+temp/
+scratch/
+
+# Raw results
+results/raw/
+
+# Databases
+*.db
+!data/evaluation/results.db
+!results/final/final_results.db

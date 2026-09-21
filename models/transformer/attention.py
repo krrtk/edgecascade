@@ -1,5 +1,27 @@
+import math
 import torch
 import torch.nn as nn
+
+
+class LoRALinear(nn.Module):
+    def __init__(self, linear, rank=8, alpha=16, dropout=0.05):
+        super().__init__()
+        self.linear = linear
+        self.lora_dropout = nn.Dropout(dropout)
+        
+        self.lora_A = nn.Parameter(torch.empty(linear.in_features, rank))
+        self.lora_B = nn.Parameter(torch.zeros(rank, linear.out_features))
+        nn.init.kaiming_uniform_(self.lora_A, a=math.sqrt(5))
+        
+        self.scaling = alpha / rank
+        
+        # Freeze the underlying pretrained linear layer
+        self.linear.weight.requires_grad = False
+        if self.linear.bias is not None:
+            self.linear.bias.requires_grad = False
+
+    def forward(self, x):
+        return self.linear(x) + self.scaling * (self.lora_dropout(x) @ self.lora_A @ self.lora_B)
 
 
 class MultiHeadAttention(nn.Module):
@@ -22,10 +44,11 @@ class MultiHeadAttention(nn.Module):
         self.num_heads = num_heads
         self.head_dim = d_out // num_heads
 
-        self.W_query = nn.Linear(
-            d_in,
-            d_out,
-            bias=qkv_bias,
+        self.W_query = LoRALinear(
+            nn.Linear(d_in, d_out, bias=qkv_bias),
+            rank=8,
+            alpha=16,
+            dropout=0.05,
         )
 
         self.W_key = nn.Linear(
@@ -34,10 +57,11 @@ class MultiHeadAttention(nn.Module):
             bias=qkv_bias,
         )
 
-        self.W_value = nn.Linear(
-            d_in,
-            d_out,
-            bias=qkv_bias,
+        self.W_value = LoRALinear(
+            nn.Linear(d_in, d_out, bias=qkv_bias),
+            rank=8,
+            alpha=16,
+            dropout=0.05,
         )
 
         self.out_proj = nn.Linear(

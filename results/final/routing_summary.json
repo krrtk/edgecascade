@@ -1,0 +1,8 @@
+{
+  "Tier 1 final": 0,
+  "Tier 1 -> Tier 2": 30,
+  "Tier 1 -> Tier 3": 0,
+  "Tier 2 final": 1,
+  "Tier 2 -> Tier 3": 29,
+  "Tier 3 final": 29
+}

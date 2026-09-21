@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-09-18T19:58:36.184407",
+  "benchmark": "D:\\Jupyter Notebook\\Jupyter Notebook\\edgecascade\\data\\evaluation\\evaluation_questions.jsonl",
+  "n_questions": 30,
+  "routing_change_recommended": false,
+  "capability_boundary_summary": {},
+  "before": {
+    "total_questions": 30,
+    "tier1_final": 0,
+    "tier2_final": 1,
+    "tier3_final": 29,
+    "correct_count": 30,
+    "correctness_rate": 1.0,
+    "remote_calls": 29,
+    "rag_calls": 30,
+    "avg_latency_s": 18.531
+  },
+  "after": {
+    "note": "No routing change recommended. Fresh run not performed."
+  },
+  "note": "No routing change was implemented because the capability boundary analysis did not identify a statistically reliable Tier-1 category. Existing benchmark results are preserved."
+}

@@ -1,0 +1,166 @@
+{
+  "counts": {
+    "GOOD": 26,
+    "PARTIALLY_GOOD": 0,
+    "BAD": 0,
+    "UNKNOWN": 4
+  },
+  "percentages": {
+    "GOOD": 86.7,
+    "PARTIALLY_GOOD": 0.0,
+    "BAD": 0.0,
+    "UNKNOWN": 13.3
+  },
+  "details": [
+    {
+      "question_id": "isro_eval_000",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The swath of Cartosat-1 in stereo mode is 26 km."
+    },
+    {
+      "question_id": "isro_eval_001",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The OBSSR capacity is 120 GB."
+    },
+    {
+      "question_id": "isro_eval_002",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The repeat cycle is 116 days."
+    },
+    {
+      "question_id": "isro_eval_003",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The two cameras are PAN-Fore and PAN-Aft."
+    },
+    {
+      "question_id": "isro_eval_004",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The fixed base-to-height ratio is 0.62."
+    },
+    {
+      "question_id": "isro_eval_005",
+      "quality": "GOOD",
+      "answer": "[REMOTE] Cartosat-1 was launched on May 05, 2005."
+    },
+    {
+      "question_id": "isro_eval_006",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The PAN sensors have a 2.5m resolution."
+    },
+    {
+      "question_id": "isro_eval_007",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The altitude is 618 km."
+    },
+    {
+      "question_id": "isro_eval_008",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The local time of equator crossing is 10:30 AM."
+    },
+    {
+      "question_id": "isro_eval_009",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The payload data rate is 105 Mbps per camera."
+    },
+    {
+      "question_id": "isro_eval_010",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The PAN-Fore and PAN-Aft cameras capture images at different angles (+26 and -5 degrees), providing fore-aft stereo capability which is necessary for generating Digital Elevation Models (DEMs)."
+    },
+    {
+      "question_id": "isro_eval_011",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The 10:30 AM crossing provides optimal sun illumination angles for optical imaging, reducing shadows while highlighting terrain features."
+    },
+    {
+      "question_id": "isro_eval_012",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The On-Board Solid State Recorder (OBSSR) has no moving parts, higher reliability, and allows simultaneous recording and playback compared to magnetic tape recorders."
+    },
+    {
+      "question_id": "isro_eval_013",
+      "quality": "GOOD",
+      "answer": "[REMOTE] In stereo mode, the swath is 26 km, whereas in mono mode (Wide Mono), the combined swath of both cameras can be up to 30 km."
+    },
+    {
+      "question_id": "isro_eval_014",
+      "quality": "GOOD",
+      "answer": "[REMOTE] X-band is used for high-speed payload data downlink (like imagery), while S-band is used for low-speed Telemetry, Tracking, and Command (TTC) operations."
+    },
+    {
+      "question_id": "dpdpa_eval_015",
+      "quality": "GOOD",
+      "answer": "[REMOTE] Consent must be free, specific, informed, unconditional and unambiguous with a clear affirmative action."
+    },
+    {
+      "question_id": "dpdpa_eval_016",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The Data Principal has the right to withdraw her consent at any time."
+    },
+    {
+      "question_id": "dpdpa_eval_017",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The Data Fiduciary and its Data Processors must cease processing the personal data within a reasonable time."
+    },
+    {
+      "question_id": "dpdpa_eval_018",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The Board must consider the nature, gravity and duration of the breach, the type of data affected, repetitive nature, any gain or loss avoided, mitigation actions taken, proportionality, and impact of the penalty."
+    },
+    {
+      "question_id": "dpdpa_eval_019",
+      "quality": "GOOD",
+      "answer": "[REMOTE] Section 33 allows the Board to impose monetary penalties specified in the Schedule after giving the person an opportunity of being heard, if a significant breach is determined."
+    },
+    {
+      "question_id": "dpdpa_eval_020",
+      "quality": "GOOD",
+      "answer": "[REMOTE] Yes, a Data Principal may give, manage, review, or withdraw consent through a Consent Manager."
+    },
+    {
+      "question_id": "dpdpa_eval_021",
+      "quality": "GOOD",
+      "answer": "[REMOTE] Requests must be in clear and plain language with an option to access them in English or any language specified in the Eighth Schedule to the Constitution."
+    },
+    {
+      "question_id": "dpdpa_eval_022",
+      "quality": "UNKNOWN",
+      "answer": "[REMOTE] The penalty may extend to two hundred and fifty crore rupees."
+    },
+    {
+      "question_id": "dpdpa_eval_023",
+      "quality": "GOOD",
+      "answer": "[REMOTE] The Central Government may, by notification, amend the Schedule."
+    },
+    {
+      "question_id": "dpdpa_eval_024",
+      "quality": "UNKNOWN",
+      "answer": "[REMOTE] No, such withdrawal shall not affect the legality of processing of the personal data based on consent before its withdrawal."
+    },
+    {
+      "question_id": "dpdpa_eval_025",
+      "quality": "GOOD",
+      "answer": "[REMOTE] While the Data Principal can withdraw consent easily (Sec 6(4)), the consequences are borne by the Principal, prior processing remains legal (Sec 6(5)), and the Fiduciary has a 'reasonable time' to cease processing (Sec 6(6))."
+    },
+    {
+      "question_id": "dpdpa_eval_026",
+      "quality": "UNKNOWN",
+      "answer": "[REMOTE] Registration ensures the Consent Manager meets technical, operational, and financial conditions (Sec 6(9)) because they act on behalf of the Data Principal and are accountable to them (Sec 6(8))."
+    },
+    {
+      "question_id": "dpdpa_eval_027",
+      "quality": "UNKNOWN",
+      "answer": "[REMOTE] The Data Fiduciary bears the burden of proof (Sec 6(10)) and must prove that a notice was given and consent was obtained in accordance with the Act."
+    },
+    {
+      "question_id": "dpdpa_eval_028",
+      "quality": "GOOD",
+      "answer": "[REMOTE] Section 33(2) mandates looking at mitigating actions, repetitive nature, and whether a gain was realised, ensuring the penalty is proportionate to the severity and the entity's behavior."
+    },
+    {
+      "question_id": "dpdpa_eval_029",
+      "quality": "GOOD",
+      "answer": "[REMOTE] Section 42(1) restricts the Central Government from increasing any penalty to more than twice of what was originally specified in the Act."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "type": "Successful Tier 2",
+    "question_id": "isro_eval_000",
+    "retrieved_evidence": "[\"cartosat1_00172\"]",
+    "answer": "The satellite is equipped with a wide swath\nof 26 km. The satellite is also equipped with a fixed\nB/H ratio of 0.62.\nThe satellite is also equipped with a",
+    "why_helped": "Retrieval provided factual entities required for semantic routing judge approval."
+  },
+  {
+    "type": "Successful Tier 3",
+    "question_id": "isro_eval_001",
+    "reason_t1_t2_failed": "T1 Judge Fail: The answer is incoherent, repetitive, and contains circular logic ('satellites are satellites'). It fails to provide a specific value or meaningful definition for 'OBSSR capacity', which is likely a specific technical metric (e.g., in telecommunications or space systems) rather than just a count of satellites. | T2 Judge Fail: The generated answer is repetitive, contains a typo ('data processing system' repeated), and fails to answer the specific question about capacity. The context explicitly states the capacity is 120 Gb, which the answer omits.",
+    "remote_fallback_result": "[REMOTE] The OBSSR capacity is 120 GB."
+  }
+]

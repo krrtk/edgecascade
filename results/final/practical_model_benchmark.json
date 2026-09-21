@@ -1,0 +1,11 @@
+{
+    "System": "Practical Cascade (Qwen2.5-0.5B-Instruct)",
+    "Overall correctness": null,
+    "Tier 1 final": null,
+    "Tier 2 final": null,
+    "Tier 3 final": null,
+    "Average latency": null,
+    "RAG calls": null,
+    "Remote calls": null,
+    "_note": "Benchmark execution was skipped because the practical local model could not be downloaded/executed efficiently due to environment constraints (CPU only, no network bandwidth). The integration architecture is complete and can be run via scripts/run_practical_benchmark.py"
+}
