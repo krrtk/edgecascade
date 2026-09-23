@@ -1,0 +1,16 @@
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - edgecascade-data:/app/data
+    env_file:
+      - .env
+    environment:
+      - PRACTICAL_MODEL_PATH=${PRACTICAL_MODEL_PATH:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+
+volumes:
+  edgecascade-data:

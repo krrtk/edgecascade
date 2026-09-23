@@ -1,0 +1,88 @@
+{
+    "metadata": {
+        "date": "2026-09-22T16:56:34.437913",
+        "judge_provider": "Groq",
+        "judge_model": "qwen/qwen3.8-27b",
+        "benchmark_size": 30,
+        "systems_evaluated": [
+            "local",
+            "rag",
+            "remote",
+            "cascade"
+        ],
+        "routing_method": "EvidenceGate (Deterministic)",
+        "evaluation_method": "Batched LLM Semantic Evaluation"
+    },
+    "system_metrics": {
+        "local": {
+            "correct": 1,
+            "partially_correct": 1,
+            "incorrect": 28,
+            "api_error": 0,
+            "rag_calls": 0,
+            "local_generation_calls": 30,
+            "remote_generation_calls": 0,
+            "judge_calls": 30,
+            "total_latency": 564.2840905189514,
+            "tier1_count": 30,
+            "tier2_count": 0,
+            "tier3_count": 0,
+            "accuracy": 5.0,
+            "accuracy_strict": 3.3333333333333335
+        },
+        "rag": {
+            "correct": 6,
+            "partially_correct": 1,
+            "incorrect": 23,
+            "api_error": 0,
+            "rag_calls": 30,
+            "local_generation_calls": 60,
+            "remote_generation_calls": 0,
+            "judge_calls": 30,
+            "total_latency": 1097.268662929535,
+            "tier1_count": 0,
+            "tier2_count": 30,
+            "tier3_count": 0,
+            "accuracy": 21.666666666666668,
+            "accuracy_strict": 20.0
+        },
+        "remote": {
+            "correct": 6,
+            "partially_correct": 5,
+            "incorrect": 19,
+            "api_error": 0,
+            "rag_calls": 0,
+            "local_generation_calls": 0,
+            "remote_generation_calls": 30,
+            "judge_calls": 30,
+            "total_latency": 48.22689604759216,
+            "tier1_count": 0,
+            "tier2_count": 0,
+            "tier3_count": 30,
+            "accuracy": 28.333333333333332,
+            "accuracy_strict": 20.0
+        },
+        "cascade": {
+            "correct": 7,
+            "partially_correct": 4,
+            "incorrect": 19,
+            "api_error": 0,
+            "rag_calls": 26,
+            "local_generation_calls": 56,
+            "remote_generation_calls": 20,
+            "judge_calls": 30,
+            "total_latency": 1051.3133528232574,
+            "tier1_count": 4,
+            "tier2_count": 6,
+            "tier3_count": 20,
+            "accuracy": 30.0,
+            "accuracy_strict": 23.333333333333332
+        }
+    },
+    "comparisons": {
+        "remote_generation_reduction_vs_always_remote": 10,
+        "rag_call_reduction_vs_always_rag": 4,
+        "remote_calls_per_correct_answer": 2.857142857142857,
+        "physical_judge_api_calls": 30
+    }
+}

@@ -20,7 +20,7 @@ TARGET_TOKENS = 300
 MAX_TOKENS = 445
 
 enc = tiktoken.get_encoding("gpt2")
-print("🔥 NEW TOKEN-AWARE BUILD_RAG.PY IS RUNNING 🔥")
+print("NEW TOKEN-AWARE BUILD_RAG.PY IS RUNNING")
 
 # ============================================================
 # HELPERS

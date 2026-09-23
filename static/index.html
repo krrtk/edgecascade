@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdgeCascade Demo</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            color: var(--primary);
+        }
+        .header p {
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+        .btn:disabled {
+            background-color: var(--text-light);
+            cursor: not-allowed;
+        }
+        .demo-questions {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        .demo-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+        .demo-btn:hover {
+            background-color: var(--border);
+        }
+        
+        #result-section {
+            display: none;
+        }
+        .badges {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: var(--border);
+            color: var(--text-main);
+        }
+        .badge.tier1 { background-color: #dbeafe; color: #1e40af; }
+        .badge.tier2 { background-color: #fef3c7; color: #b45309; }
+        .badge.tier3 { background-color: #fee2e2; color: #b91c1c; }
+        .badge.latency { background-color: #e0e7ff; color: #3730a3; }
+        
+        .answer-box {
+            background-color: var(--bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        .feedback-section {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feedback-btn {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .feedback-btn:hover {
+            background-color: var(--bg);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .metric-card {
+            background-color: var(--bg);
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+        
+        .error-msg {
+            color: var(--danger);
+            background-color: #fee2e2;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+            border: 1px solid #fca5a5;
+        }
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 10px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .note {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 20px;
+            text-align: center;
+            background-color: #fffbeb;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #fde68a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>EdgeCascade</h1>
+            <p>Adaptive LLM Routing Demo</p>
+        </div>
+
+        <!-- Query Form -->
+        <div class="card">
+            <div class="form-group">
+                <label for="domain">Domain</label>
+                <select id="domain" onchange="updateDemoQuestions()">
+                    <option value="isro">ISRO</option>
+                    <option value="dpdpa">DPDPA</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="question">Question</label>
+                <textarea id="question" placeholder="Enter your question here..."></textarea>
+            </div>
+            
+            <button id="ask-btn" class="btn" onclick="askQuestion()">Ask Question</button>
+            
+            <div class="demo-questions" id="demo-questions">
+                <p>Example questions:</p>
+                <div id="demo-buttons"></div>
+            </div>
+            
+            <div id="error-box" class="error-msg"></div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loader" class="loader card">
+            <div class="spinner"></div>
+            <div>Processing query through EdgeCascade pipeline...</div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="result-section" class="card">
+            <div class="badges" id="badges-container">
+                <!-- Badges will be inserted here -->
+            </div>
+            
+            <label>Answer</label>
+            <div id="answer-box" class="answer-box"></div>
+            
+            <div class="feedback-section" id="feedback-section">
+                <span>Was this response helpful?</span>
+                <button class="feedback-btn" onclick="submitFeedback('positive')" title="Positive Feedback">👍</button>
+                <button class="feedback-btn" onclick="submitFeedback('negative')" title="Negative Feedback">👎</button>
+                <span id="feedback-msg" style="color: var(--success); font-size: 14px; margin-left: 10px; display: none;">Feedback saved!</span>
+            </div>
+        </div>
+
+        <!-- Metrics Dashboard -->
+        <div class="card">
+            <h3>System Metrics</h3>
+            <button class="demo-btn" onclick="fetchMetrics()" style="margin-bottom: 10px;">Refresh Metrics</button>
+            <div class="metrics-grid" id="metrics-grid">
+                <!-- Metrics will be inserted here -->
+                <div class="metric-card"><div class="metric-value">-</div><div class="metric-label">Total Requests</div></div>
+            </div>
+            
+            <div class="note">
+                <strong>Note:</strong> Current routing gate is experimental; evaluation showed over-acceptance of Tier-1 answers. Evidence-based routing refinement is the next research iteration.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const demoQuestions = {
+            isro: [
+                "What is Resourcesat-2 used for?",
+                "What is the role of Cartosat-1?"
+            ],
+            dpdpa: [
+                "What is a Data Fiduciary?",
+                "What is a Consent Manager?"
+            ]
+        };
+
+        let currentRequestId = null;
+
+        function updateDemoQuestions() {
+            const domain = document.getElementById('domain').value;
+            const buttonsContainer = document.getElementById('demo-buttons');
+            buttonsContainer.innerHTML = '';
+            
+            demoQuestions[domain].forEach(q => {
+                const btn = document.createElement('button');
+                btn.className = 'demo-btn';
+                btn.textContent = q;
+                btn.onclick = () => {
+                    document.getElementById('question').value = q;
+                };
+                buttonsContainer.appendChild(btn);
+            });
+        }
+
+        async function askQuestion() {
+            const domain = document.getElementById('domain').value;
+            const question = document.getElementById('question').value.trim();
+            const btn = document.getElementById('ask-btn');
+            const loader = document.getElementById('loader');
+            const resultSection = document.getElementById('result-section');
+            const errorBox = document.getElementById('error-box');
+            
+            if (!question) return;
+
+            // Reset UI
+            btn.disabled = true;
+            resultSection.style.display = 'none';
+            errorBox.style.display = 'none';
+            loader.style.display = 'block';
+            document.getElementById('feedback-msg').style.display = 'none';
+            document.getElementById('feedback-section').style.display = 'flex';
+            currentRequestId = null;
+
+            try {
+                const response = await fetch('/query', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ domain, question })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.detail || 'API request failed');
+                }
+
+                currentRequestId = data.request_id;
+                
+                // Update Results
+                document.getElementById('answer-box').textContent = data.answer;
+                
+                const badgesContainer = document.getElementById('badges-container');
+                badgesContainer.innerHTML = '';
+                
+                // Tier Badge
+                const tierClass = data.tier === 'tier1' ? 'tier1' : (data.tier === 'tier2' ? 'tier2' : 'tier3');
+                badgesContainer.innerHTML += `<span class="badge ${tierClass}">Tier: ${data.tier.toUpperCase()}</span>`;
+                
+                // Latency Badge
+                badgesContainer.innerHTML += `<span class="badge latency">Latency: ${data.latency_ms} ms</span>`;
+                
+                // RAG Badge
+                if (data.rag_used) {
+                    badgesContainer.innerHTML += `<span class="badge" style="background:#d1fae5; color:#065f46;">RAG Used</span>`;
+                }
+                
+                // Remote Badge
+                if (data.remote_used) {
+                    badgesContainer.innerHTML += `<span class="badge" style="background:#fce7f3; color:#9d174d;">Remote LLM</span>`;
+                }
+
+                resultSection.style.display = 'block';
+                fetchMetrics(); // Update metrics in background
+                
+            } catch (err) {
+                errorBox.textContent = `Error: ${err.message}`;
+                errorBox.style.display = 'block';
+            } finally {
+                btn.disabled = false;
+                loader.style.display = 'none';
+            }
+        }
+
+        async function submitFeedback(type) {
+            if (!currentRequestId) return;
+            
+            try {
+                const response = await fetch('/feedback', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ request_id: currentRequestId, feedback: type })
+                });
+                
+                if (response.ok) {
+                    document.getElementById('feedback-msg').style.display = 'inline';
+                    document.getElementById('feedback-section').style.display = 'none';
+                    fetchMetrics();
+                }
+            } catch (err) {
+                console.error("Feedback error", err);
+            }
+        }
+
+        async function fetchMetrics() {
+            try {
+                const response = await fetch('/metrics');
+                if (!response.ok) return;
+                const data = await response.json();
+                
+                const grid = document.getElementById('metrics-grid');
+                grid.innerHTML = `
+                    <div class="metric-card"><div class="metric-value">${data.total_requests}</div><div class="metric-label">Total Requests</div></div>
+                    <div class="metric-card"><div class="metric-value">${data.tier_1_count}</div><div class="metric-label">Tier 1</div></div>
+                    <div class="metric-card"><div class="metric-value">${data.tier_2_count}</div><div class="metric-label">Tier 2</div></div>
+                    <div class="metric-card"><div class="metric-value">${data.tier_3_count}</div><div class="metric-label">Tier 3</div></div>
+                    <div class="metric-card"><div class="metric-value">${data.average_latency}s</div><div class="metric-label">Avg Latency</div></div>
+                    <div class="metric-card" style="color:var(--success)"><div class="metric-value">${data.positive_feedback}</div><div class="metric-label">👍</div></div>
+                    <div class="metric-card" style="color:var(--danger)"><div class="metric-value">${data.negative_feedback}</div><div class="metric-label">👎</div></div>
+                `;
+            } catch (err) {
+                console.error("Metrics error", err);
+            }
+        }
+
+        // Initialize
+        updateDemoQuestions();
+        fetchMetrics();
+    </script>
+</body>
+</html>

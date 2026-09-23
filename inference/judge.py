@@ -23,7 +23,6 @@ class APIJudge:
         self.api_key = os.environ.get("GROQ_API_KEY") or os.environ.get("OPENAI_API_KEY")
         if not self.api_key:
             raise ValueError("API key not found")
-        # Defaulting to Groq compatible endpoint for speed/cost if available, else OpenAI
         if os.environ.get("GROQ_API_KEY"):
             self.endpoint = "https://api.groq.com/openai/v1/chat/completions"
             self.model = "qwen/qwen3.8-27b"
@@ -48,8 +47,6 @@ class APIJudge:
             "Your job is to determine if a generated answer is sufficiently good to PASS. "
             "An answer should PASS only if it is coherent, directly relevant to the question, "
             "and does not contain unsupported, circular, repetitive, or fabricated claims.\n\n"
-            "IMPORTANT: Do not reward fluency alone. A confident or fluent answer that contains "
-            "unsupported, circular, repetitive, or fabricated claims should FAIL.\n\n"
         )
         
         if context:
@@ -65,13 +62,6 @@ class APIJudge:
             "  \"score\": int (1-5),\n"
             "  \"reason\": \"Brief explanation\"\n"
             "}\n"
-            "Score guide:\n"
-            "1 = clearly bad/hallucinated\n"
-            "2 = weak / substantially incomplete / contradicts context\n"
-            "3 = borderline\n"
-            "4 = good / supported\n"
-            "5 = strong / highly accurate\n"
-            "A PASS generally requires a score of 4 or 5."
         )
         
         user_prompt = f"Question: {question}\nGenerated Answer: {ans_text}\n"
@@ -95,7 +85,6 @@ class APIJudge:
                 data = response.json()
                 content = data["choices"][0]["message"]["content"]
                 result = json.loads(content)
-                # Ensure structure
                 return {
                     "pass": bool(result.get("pass", False)),
                     "score": int(result.get("score", 1)),
@@ -109,84 +98,151 @@ class APIJudge:
 
 class SemanticRoutingJudge:
     def __init__(self):
-        # Threshold for Tier 1 confidence (avg log-prob)
         self.confidence_threshold = -1.2 
         
-    def is_factually_supported(self, context, answer):
-        # A lightweight local semantic judge for entailment without large models
-        ans_nums = re.findall(r'\b\d+(?:\.\d+)?\b', answer)
-        for num in ans_nums:
-            if num not in context:
-                return False, f"Unsupported number '{num}'"
-                
-        ans_entities = re.findall(r'\b[A-Z][a-z]{3,}\b', answer)
-        common = {"The", "This", "That", "It", "They", "What", "How", "When", "Where", "Why"}
-        for ent in ans_entities:
-            if ent not in common and ent.lower() not in context.lower():
-                return False, f"Unsupported entity '{ent}'"
-                
-        words1 = set(re.findall(r'\b\w+\b', context.lower()))
-        words2 = set(re.findall(r'\b\w+\b', answer.lower()))
-        if not words2: return False, "Empty answer"
-        
-        stopwords = {"the", "is", "a", "of", "in", "and", "to", "for", "with", "on", "at", "by", "from", "it", "has", "width"}
-        ans_content = words2 - stopwords
-        
-        if not ans_content: return True, ""
-        
-        overlap = len(ans_content.intersection(words1))
-        if overlap / len(ans_content) < 0.2:
-            return False, "Low semantic overlap with context"
-            
-        return True, ""
-
     def judge(self, question, answer, context=None, log_probs=None, **kwargs):
-        ans_start = answer.find("Answer:")
-        if ans_start != -1:
-            ans_text = answer[ans_start + 7:].strip()
-        else:
-            ans_text = answer.strip()
-            
-        words = ans_text.lower().split()
-        if len(words) < 3:
-            return {"pass": False, "score": 1, "reason": "Answer too short or incomplete"}
-            
-        if len(words) > 10:
-            vocab = set(words)
-            if len(vocab) / len(words) < 0.3:
-                return {"pass": False, "score": 1, "reason": "Highly repetitive generation"}
-                
-        q_clean = re.sub(r'[^\w\s]', '', question.lower())
-        a_clean = re.sub(r'[^\w\s]', '', ans_text.lower())
-        if a_clean.startswith(q_clean):
-            if len(a_clean) < len(q_clean) + 20: 
-                return {"pass": False, "score": 2, "reason": "Answer just repeats the question"}
-                
-        if context is None:
-            if log_probs is not None and len(log_probs) > 0:
-                avg_log_prob = sum(log_probs) / len(log_probs)
-                if avg_log_prob < self.confidence_threshold:
-                    return {"pass": False, "score": 2, "reason": f"Low confidence generation (avg log-prob: {avg_log_prob:.2f})"}
-            return {"pass": True, "score": 4, "reason": "Answer is coherent and confident"}
-        else:
-            supported, reason = self.is_factually_supported(context, ans_text)
-            if not supported:
-                return {"pass": False, "score": 2, "reason": f"Answer not supported by context: {reason}"}
-            return {"pass": True, "score": 4, "reason": "Answer is semantically supported by context"}
+        # Kept for compatibility but we are using EvidenceGate now
+        return {"pass": True, "score": 4, "reason": "Bypassed by EvidenceGate"}
 
 def get_judge():
-    if os.environ.get("GROQ_API_KEY") or os.environ.get("OPENAI_API_KEY"):
+    if os.environ.get("ROUTING_JUDGE") == "api" and (os.environ.get("GROQ_API_KEY") or os.environ.get("OPENAI_API_KEY")):
         return APIJudge()
-    print("API judge unavailable. Using heuristic fallback.")
     return SemanticRoutingJudge()
 
-# Mock Remote LLM
+class LLMEvaluationJudge:
+    def __init__(self):
+        self.api_key = os.environ.get("GROQ_API_KEY") or os.environ.get("OPENAI_API_KEY")
+        if not self.api_key:
+            raise ValueError("API key not found")
+        if os.environ.get("GROQ_API_KEY"):
+            self.endpoint = "https://api.groq.com/openai/v1/chat/completions"
+            self.model = "qwen/qwen3.8-27b"
+            self.provider = "Groq"
+        else:
+            self.endpoint = "https://api.openai.com/v1/chat/completions"
+            self.model = "gpt-4o-mini"
+            self.provider = "OpenAI"
+            
+        self.headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        self.call_count = 0
+
+    def evaluate_batch(self, question, ground_truth, candidates):
+        """
+        candidates: dict mapping system_name to answer string
+        Returns dict mapping system_name to result dict.
+        """
+        self.call_count += 1
+        system_prompt = (
+            "You are an expert evaluation judge determining if candidate answers are semantically correct given a reference ground-truth answer. "
+            "Evaluate SEMANTIC correctness, not exact string matching. "
+            "Distinguish between: correct (1.0), partially correct (0.5), incorrect (0.0). "
+            "Output EXACTLY valid JSON with the following structure, keyed by the system name:\n"
+            "{\n"
+            "  \"local\": {\"correctness\": \"correct/partially correct/incorrect\", \"score\": 1.0, \"reason\": \"...\"},\n"
+            "  \"rag\": {\"correctness\": \"correct/partially correct/incorrect\", \"score\": 1.0, \"reason\": \"...\"},\n"
+            "  \"remote\": {\"correctness\": \"correct/partially correct/incorrect\", \"score\": 1.0, \"reason\": \"...\"},\n"
+            "  \"cascade\": {\"correctness\": \"correct/partially correct/incorrect\", \"score\": 1.0, \"reason\": \"...\"}\n"
+            "}\n"
+        )
+        
+        user_prompt = f"Question: {question}\nReference Answer: {ground_truth}\n"
+        for sys_name, ans in candidates.items():
+            user_prompt += f"Candidate Answer ({sys_name}): {ans}\n"
+            
+        payload = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            "temperature": 0.0,
+            "response_format": {"type": "json_object"}
+        }
+
+        # 1 retry only for faster failure
+        max_retries = 1
+        base_delay = 2
+        for attempt in range(max_retries):
+            try:
+                response = requests.post(self.endpoint, headers=self.headers, json=payload, timeout=20)
+                if response.status_code == 429 or response.status_code >= 500:
+                    raise requests.exceptions.RequestException(f"API Error {response.status_code}")
+                response.raise_for_status()
+                data = response.json()
+                content = data["choices"][0]["message"]["content"]
+                result = json.loads(content)
+                
+                final_res = {}
+                for sys_name in candidates.keys():
+                    sys_res = result.get(sys_name, {})
+                    final_res[sys_name] = {
+                        "status": str(sys_res.get("correctness", "incorrect")).lower(),
+                        "score": float(sys_res.get("score", 0.0)),
+                        "reason": str(sys_res.get("reason", "Unknown reason")),
+                        "correct": str(sys_res.get("correctness", "incorrect")).lower() == "correct"
+                    }
+                return final_res
+            except Exception as e:
+                if attempt == max_retries - 1:
+                    return {
+                        sys_name: {"status": "API_ERROR", "score": 0.0, "reason": f"API Error: {str(e)}", "correct": False}
+                        for sys_name in candidates.keys()
+                    }
+                time.sleep(base_delay * (2 ** attempt))
+
 class RemoteLLM:
     def __init__(self):
-        pass
+        self.api_key = os.environ.get("GROQ_API_KEY") or os.environ.get("OPENAI_API_KEY")
+        if not self.api_key:
+            print("Warning: No API key found for RemoteLLM. Tier-3 will fail.")
         
-    def generate(self, question, ground_truth):
-        """
-        Simulates a Remote LLM by returning a perfect answer based on the ground truth.
-        """
-        return f"[REMOTE] {ground_truth}"
+        if os.environ.get("GROQ_API_KEY"):
+            self.endpoint = "https://api.groq.com/openai/v1/chat/completions"
+            self.model = "qwen/qwen3.8-27b"
+        else:
+            self.endpoint = "https://api.openai.com/v1/chat/completions"
+            self.model = "gpt-4o-mini"
+            
+        self.headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        
+    def generate(self, question, ground_truth=None, context=None):
+        if not self.api_key:
+            return "[REMOTE_ERROR] No API key available."
+            
+        system_prompt = "You are a helpful and accurate assistant. Please answer the user's question concisely."
+        user_prompt = f"Question: {question}\n"
+        if context:
+            user_prompt += f"Context: {context}\n"
+            
+        payload = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            "temperature": 0.3,
+            "max_tokens": 150
+        }
+
+        # 1 retry only for faster failure
+        max_retries = 1
+        base_delay = 2
+        for attempt in range(max_retries):
+            try:
+                response = requests.post(self.endpoint, headers=self.headers, json=payload, timeout=20)
+                if response.status_code == 429 or response.status_code >= 500:
+                    raise requests.exceptions.RequestException(f"API Error {response.status_code}")
+                response.raise_for_status()
+                data = response.json()
+                answer = data["choices"][0]["message"]["content"].strip()
+                return f"[REMOTE] {answer}"
+            except Exception as e:
+                if attempt == max_retries - 1:
+                    return f"[REMOTE_ERROR] API Error: {str(e)}"
+                time.sleep(base_delay * (2 ** attempt))

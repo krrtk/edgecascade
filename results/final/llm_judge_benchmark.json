@@ -1,0 +1,74 @@
+{
+    "metadata": {
+        "date": "2026-09-22T13:06:20.479780",
+        "judge_provider": "Groq",
+        "judge_model": "qwen/qwen3.8-27b",
+        "benchmark_size": 30,
+        "systems_evaluated": [
+            "local",
+            "rag",
+            "remote",
+            "cascade"
+        ],
+        "judge_methodology": "LLM Semantic Evaluation"
+    },
+    "system_metrics": {
+        "local": {
+            "correct": 1,
+            "partially_correct": 0,
+            "incorrect": 29,
+            "rag_calls": 0,
+            "local_generation_calls": 30,
+            "remote_generation_calls": 0,
+            "judge_calls": 30,
+            "total_latency": 269.0920443534851,
+            "accuracy": 3.3333333333333335,
+            "accuracy_strict": 3.3333333333333335
+        },
+        "rag": {
+            "correct": 4,
+            "partially_correct": 1,
+            "incorrect": 25,
+            "rag_calls": 30,
+            "local_generation_calls": 60,
+            "remote_generation_calls": 0,
+            "judge_calls": 30,
+            "total_latency": 590.8489899635315,
+            "accuracy": 15.0,
+            "accuracy_strict": 13.333333333333334
+        },
+        "remote": {
+            "correct": 1,
+            "partially_correct": 0,
+            "incorrect": 29,
+            "rag_calls": 0,
+            "local_generation_calls": 0,
+            "remote_generation_calls": 30,
+            "judge_calls": 30,
+            "total_latency": 86.3806483745575,
+            "accuracy": 3.3333333333333335,
+            "accuracy_strict": 3.3333333333333335
+        },
+        "cascade": {
+            "correct": 2,
+            "partially_correct": 0,
+            "incorrect": 28,
+            "rag_calls": 0,
+            "local_generation_calls": 30,
+            "remote_generation_calls": 0,
+            "judge_calls": 30,
+            "total_latency": 269.8154368400574,
+            "accuracy": 6.666666666666667,
+            "accuracy_strict": 6.666666666666667
+        }
+    },
+    "comparisons": {
+        "remote_generation_reduction_vs_always_remote": 30,
+        "rag_call_reduction_vs_always_rag": 30,
+        "accuracy_diff_vs_always_remote": 3.3333333333333335,
+        "accuracy_diff_vs_always_local": 3.3333333333333335,
+        "accuracy_diff_vs_always_rag": -6.666666666666667,
+        "remote_calls_per_correct_answer": 0.0,
+        "total_judge_calls": 120
+    }
+}
